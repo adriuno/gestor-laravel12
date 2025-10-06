@@ -31,6 +31,13 @@ class EntradaController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'titulo' => 'required|string|max:50',
+            'tag' => 'required|string|max:20',
+            'contenido' => 'required|string',
+        ]);
+
         $nueva = new Entrada();
         $nueva->titulo = $request->titulo;
         $nueva->tag = $request->tag;

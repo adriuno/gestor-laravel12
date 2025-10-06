@@ -29,3 +29,9 @@ Route::resource('entrada', EntradaController::class);
 
 // Si quisieramos de ahí, quitar algúna ruta... sería x ejemplo:
 // Route::resource('entrada', EntradaController::class)->except(['show', 'edit',]);
+
+
+// La vista plantilla ----> app saldrá aquí:
+Route::get('/app', function () {
+    return view('usuario.index');
+});

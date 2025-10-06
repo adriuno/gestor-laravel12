@@ -28,21 +28,36 @@
             <div class="row">
                 <div class="form-group col-12 col-md-6">
                     <label for="titulo">Título</label>
-                    <input type="text" name="titulo" id="titulo" class="form-control" placeholder="Ingrese un título"> 
+                    <input type="text" name="titulo" id="titulo" value="{{old('titulo')}}" class="form-control" placeholder="Ingrese un título"> 
                 </div>
+
                 <div class="form-group col-12 col-md-6">
                     <label for="tag">Tag</label>
-                    <input type="text" name="tag" id="tag" class="form-control" placeholder="Determine el tag"> 
+                    <input type="text" name="tag" id="tag" value="{{old('tag')}}" class="form-control" placeholder="Determine el tag"> 
                 </div>
+
                 <div class="form-group col-12 col-md-6">
                     <label for="contenido">Contenido</label>
-                    <input type="text" name="contenido" id="contenido" class="form-control" placeholder="Añada el contenido"> 
+                    <input type="text" name="contenido" value="{{old('contenido')}}" id="contenido" class="form-control" placeholder="Añada el contenido"> 
                 </div>
+
                 <div class="center">
                     <button type="submit" class="btn btn-primary mt-4">Guardar</button>
                 </div>
             </div>
         </form>
+
+        {{-- para mostrar los errores de validación -------- obtenemos todos los errores y los recorremos, mostrándolos en una lista --}}
+        @if($errors->any())
+            <div class="alert alert-danger mt-4">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{$error}}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
     </section>
     </div>
 </body>
